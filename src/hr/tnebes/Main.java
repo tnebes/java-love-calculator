@@ -15,12 +15,12 @@ public class Main {
     public static void main(String[] args) {
         final String name1;
         final String name2;
-        try (Scanner scanner = new Scanner(System.in)) {
+        try (final Scanner scanner = new Scanner(System.in)) {
             System.out.print("Enter the first lover's name: ");
             name1 = scanner.nextLine();
             System.out.print("Enter the second lover's name: ");
             name2 = scanner.nextLine();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             System.out.println("Names must not be null or empty");
             return;
         }
