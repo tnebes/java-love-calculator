@@ -26,7 +26,13 @@ public class LoveCalculator {
     }
 
     private String calculateLetterArrayValues(final String combinedNames) {
-        return Stream.of(combinedNames.split("")).map(letter -> (int) (Stream.of(combinedNames.split("")).filter(letter::equals).count())).map(String::valueOf).collect(Collectors.joining(""));
+        return Stream.of(combinedNames.split(""))
+                .map(letter -> (int) (Stream.of(combinedNames
+                        .split(""))
+                        .filter(letter::equals)
+                        .count()))
+                .map(String::valueOf)
+                .collect(Collectors.joining(""));
     }
 
     private int recursivelyCalculateLovePercent(final String letterValues) {
