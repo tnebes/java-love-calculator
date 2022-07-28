@@ -6,7 +6,7 @@ public class Main {
         new Main();
     }
 
-    private Main() {
+    public Main() {
         final String name1 = "Marta";
         final String name2 = "Manuel";
         System.out.println(new LoveCalculator(name1, name2).getLovePercent());

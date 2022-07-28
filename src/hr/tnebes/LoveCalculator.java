@@ -26,16 +26,25 @@ public class LoveCalculator {
     }
 
     private String calculateLetterArrayValues(final String combinedNames) {
-        return Stream.of(combinedNames.split(""))
-                .map(letter -> (int) (Stream.of(combinedNames.split(""))
-                        .filter(letter::equals)
-                        .count()))
-                .map(String::valueOf)
-                .collect(Collectors.joining(""));
+        return Stream.of(combinedNames.split("")).map(letter -> (int) (Stream.of(combinedNames.split("")).filter(letter::equals).count())).map(String::valueOf).collect(Collectors.joining(""));
     }
 
-    private int recursivelyCalculateLovePercent(final String letterArrayValues) {
-        return 0;
+    private int recursivelyCalculateLovePercent(final String letterValues) {
+        if (letterValues.length() <= 2) {
+            return Integer.parseInt(letterValues);
+        }
+
+        StringBuilder newLetterValues = new StringBuilder();
+        final String[] letterArrayValues = letterValues.split("");
+        for (int i = 0, j = letterArrayValues.length - 1; i <= j; i++, j--) {
+            if (i == j) {
+                newLetterValues.append(letterArrayValues[i]);
+                break;
+            }
+            newLetterValues.append(Integer.parseInt(letterArrayValues[i]) + Integer.parseInt(letterArrayValues[j]));
+        }
+
+        return recursivelyCalculateLovePercent(newLetterValues.toString());
     }
 
     public int getLovePercent() {
