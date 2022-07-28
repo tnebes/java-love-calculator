@@ -1,17 +1,15 @@
 package hr.tnebes.test;
 
 import hr.tnebes.Main;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MainTest {
 
     @Test
-    private void CalculationForMartaManuelReturns91() {
-        Main main = new Main();
-
-
+    public void CalculationForMartaManuelReturns91() {
+        Main main = new Main("Marta", "Manuel");
+        Assertions.assertEquals(main.calculateLove(), "91%");
     }
 
 }
